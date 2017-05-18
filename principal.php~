@@ -1,0 +1,58 @@
+<?php
+require 'vaca.php';
+
+$vacas = vaca::getAll();
+print_r($vacas);
+echo sizeof($vacas);
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Identificador de Ganado</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/boostrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg320mUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/boostrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHj0MaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<div class="row" style="margin-top:10%">
+   <div class="col-md-8 col-md-offset-2">
+    <table class="table table-hover table striped">
+        <thead>
+             <tr>
+                 <th>Codigo</th>
+                 <th>Raza</th>
+                 <th>Fecha nacimiento</th>
+                 <th>Peso</th>
+                 <th>Escala</th>
+                 <th>Estado</th>
+                 <th>Fecha de Parto</th>
+                 <th>Fecha de Inicio de Produccion</th>
+                 <th>Tiempos de Alimentacion</th>
+                 <th>Tratamiento</th>                
+             </tr>
+        </thead>
+          <tbody>
+              <? if ($vacas): ?>
+             		 <? for($i = 0; $i < sizeof($vacas); $i++): ?>
+                              <tr> 
+                                  <td><?= $vacas[$i]['codigo'] ?></td>
+                                  <td><?= $vacas[$i]['raza'] ?></td>
+                                  <td><?= $vacas[$i]['fecha_nacimiento'] ?></td>
+                                  <td><?= $vacas[$i]['peso'] ?></td>
+                                  <td><?= $vacas[$i]['escala'] ?></td>
+                                  <td><?= $vacas[$i]['estado'] ?></td> 
+                                  <td><?= $vacas[$i]['fecha_parto'] ?></td>
+                                  <td><?= $vacas[$i]['fecha_inicio_produccion'] ?></td>
+                                  <td><?= $vacas[$i]['tiempos_alimentacion'] ?></td>
+                                  <td><?= $vacas[$i]['tratamiento'] ?></td>
+                               </tr> 
+              		<? endfor ?>
+              <? endif; ?>
+           </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
