@@ -46,6 +46,7 @@ $vacas = vaca::getAll();
                                       <td><?= $vaca['tiempos_alimentacion'] ?></td>
                                       <td><?= $vaca['tratamiento'] ?></td>
                                       <td>
+                                        <a href="detalle_vaca.php?codigo=<?= $vaca['codigo'] ?>">Detalle</a>
                                         <a href="borrar_vaca.php?codigo=<?= $vaca['codigo'] ?>">Eliminar</a>
                                         <a href="modificar_vaca.php?codigo=<?= $vaca['codigo'] ?>">Editar</a>
                                       </td>

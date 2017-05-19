@@ -175,6 +175,22 @@ class vaca
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
         return $sentencia->execute(array($codigo, Date("Y-m-d H:i:s")));
     }
+
+    public function getVisits($codigo)
+    {
+        $consulta = "SELECT * FROM visitas WHERE codigo = ?";
+        try {
+            // Preparar sentencia
+            $comando = Database::getInstance()->getDb()->prepare($consulta);
+            // Ejecutar sentencia preparada
+            $comando->execute(array($codigo));
+
+            return $comando->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 }
 
 ?>
