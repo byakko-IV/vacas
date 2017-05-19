@@ -171,9 +171,9 @@ class vaca
 
     public static function setVisit($codigo)
     {
-        $comando = "INSERT INTO visitas(codigo) VAlUES(?)";
+        $comando = "INSERT INTO visitas(codigo, fecha_hora) VAlUES(?,?)";
         $sentencia = Database::getInstance()->getDb()->prepare($comando);
-        return $sentencia->execute(array($codigo));
+        return $sentencia->execute(array($codigo, Date("Y-m-d H:i:s")));
     }
 }
 
